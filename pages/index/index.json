@@ -1,0 +1,8 @@
+{
+
+    "navigationBarTitleText": "首页",
+  "usingComponents": {
+    "my-header": "/component/header/header",
+    "qq-video": "plugin://qqVideo/video"
+  }
+}

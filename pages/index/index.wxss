@@ -1,0 +1,7 @@
+/**index.wxss**/
+.box{ border:1px black solid; }
+
+.rpxBox { width: 375rpx; height : 100px; background:red; }
+.pxBox{ width:187.5px; height:100px; background:blue; }
+
+.nowClassItem{ background : green; }

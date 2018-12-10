@@ -1,0 +1,4 @@
+<template name="indexHeader">
+    <view>indexHeader --  111 -- {{ message }}</view>
+    <view>indexHeader --  222</view>
+</template>
