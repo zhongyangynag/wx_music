@@ -4,28 +4,27 @@ const app = getApp()
 
 Page({
   data: {
-    message: 'hello 小程序',
     nowClass: 'box',
-    list: [1111, 2222, 33333],
     isShow: false,
-    childInfo: '事件  ---  子容器',
-    msgInfo: '来自父级的问候'
-  },
-  handleChange() {
-    this.setData({
-      message: 'new 小程序'
-    });
-  },
-  handleToList() {
-    /* wx.navigateTo({
-      url : '/pages/list/list'
-     });*/
-    wx.reLaunch({
-      url: '/pages/list/list'
-    });
+    value: '芒种',
+    username:'17782149108',
+    password:'hc123456'
   },
   onLoad: function () {
-    console.log(this.route);
+    var that = this
+    // /recommend/songs
+        wx.request({
+          url: 'http://148.70.214.132:3000/top/playlist?limit=21&order=hot',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            success: function (res) {
+                console.log(res)
+              that.setData({
+                list: res.data.playlists
+              })
+            }
+        })
   },
   onReachBottom: function () {
     console.log('已经到底了，可以添加新的数据了');
@@ -33,19 +32,52 @@ Page({
   onShareAppMessage: function () {
 
   },
-  handleToEvent(ev) {
-    console.log(ev.target.id);
-    //console.log( ev.currentTarget );
-    if (ev.currentTarget.id === 'child') {
-      this.setData({
-        childInfo: '子容器  ---  事件'
-      });
+  input: function (e) {
+    this.setData({
+      value: e.detail.detail.value
+    })
+  },
+  inputname: function (e) {
+    console.log(e)
+    this.setData({
+      username: e.detail.detail.value
+    })
+  },
+  inputpassword: function (e) {
+    this.setData({
+      password: e.detail.detail.value
+    })
+  },
+  // login(e){
+  //   let username = this.data.username
+  //   let password = this.data.password
+  //   console.log(username,password)
+  //   // http://localhost:3000/
+  //   wx.request({
+  //     url: 'http://localhost:3000/login/cellphone?phone=' + username + '&password=' + password,
+  //           headers: {
+  //               'Content-Type': 'application/json'
+  //           },
+  //           success: function (res) {
+  //               console.log(res)
+  //           }
+  //       })
+  // },
+  search(e) {
+    let value = this.data.value
+    if(value){
+          wx.navigateTo({
+            url: '/pages/searchDetail/searchDetail?value='+value,
+      })
     }
+ 
   },
-  getHeaderInfo(ev) {
-    console.log(ev.detail);
+  handleClick(e){
+    let id = e.currentTarget.dataset.item
+    wx.navigateTo({
+      url: '/pages/musicList/musicList?id='+id,
+    })
+    console.log(e.currentTarget.dataset.item)
   },
-  showNumber() {
-    return 1234;
-  }
+
 })

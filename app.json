@@ -1,36 +1,29 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/list/list"
+    "pages/musicList/musicList",
+    "pages/play/play",
+    "pages/searchDetail/searchDetail"
+  ],
+  "requiredBackgroundModes": [
+    "audio",
+    "location"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black",
-    "navigationStyle" : "default",
-    "backgroundColor" : "#0ff",
-    "enablePullDownRefresh" : true,
-    "onReachBottomDistance" : 0
-  },
-  "tabBar": {
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "resources/buy.png",
-        "selectedIconPath": "resources/sell.png"
-      },
-      {
-        "pagePath": "pages/list/list",
-        "text": "列表"
-      }
-    ]
+    "navigationStyle": "default",
+    "backgroundColor": "#0ff",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 0
   },
   "plugins": {
     "qqVideo": {
       "version": "1.2.4",
       "provider": "wxa75efa648b60994b"
     }
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

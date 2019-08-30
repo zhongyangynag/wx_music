@@ -1,0 +1,37 @@
+<!--pages/musicList/musicList.wxml-->
+
+<wxs src='filter.wxs' module='filter'/>
+<view class="imagebox">
+ <image mode="center" wx:if="{{condition}}" class="image" src="{{ImgUrl}}" />
+</view>
+<!-- img下 -->
+<view class="tablebox">
+  <view class="musicListTab">
+    <view class="musicListNameTitle">
+        <image class="creator" src="{{list.creator.avatarUrl}}"/>
+        <text>{{list.name}}</text>
+    </view>
+    <view class="musicDescription">
+      {{list.playlist.description}}
+    </view>
+  </view>
+  <view class="table">
+    <view class="tr bg-w">
+      <view class="th">歌曲</view>
+      <view class="th">歌手</view>
+      <view class="th ">时长</view>
+    </view>
+    <block wx:for="{{list.playlist.tracks}}" wx:key="{{id}}">
+      <view  class="tr bg-g" data-item="{{item.id}}" data-duration="{{filter.formatDate(item.dt)}}" bindtap="handleClick" wx:if="{{index % 2 == 0}}">
+        <view class="td tdname"><text class="text">{{item.name}}</text></view>
+        <view class="td"><text class="text">{{item.ar[0].name}}</text></view>
+        <view class="td">{{filter.formatDate(item.dt)}}</view>
+      </view>
+      <view class="tr" data-item="{{item.id}}" data-duration="{{filter.formatDate(item.dt)}}" bindtap="handleClick" wx:else>
+        <view class="td tdname"><text class="text">{{item.name}}</text></view>
+        <view class="td"><text class="text">{{item.ar[0].name}}</text></view>
+        <view class="td">{{filter.formatDate(item.dt)}}</view>
+      </view>
+    </block>
+  </view>
+</view>

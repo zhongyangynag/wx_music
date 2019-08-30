@@ -1,0 +1,34 @@
+<!--pages/play/play.wxml-->
+<view class="maxBox">
+  <view class="headerBox">
+    <view>{{name}}</view>
+    <text>{{arname}}</text>
+  </view>
+  <view class="playImgBox" wx:if="{{condition}}" >
+    <cover-image class="playImg" src="{{imgSrc}}"></cover-image>
+  </view>
+  <view class='audiosBox'>
+      <view class="audioOpen" bindtap="listenerButtonPlay" wx:if="{{!isOpen}}">
+        <image src="/resources/play.png" />
+      </view>
+      <view class="audioOpen" bindtap="listenerButtonPause" wx:if="{{isOpen}}">
+        <image src="/resources/pause.png" />
+      </view>
+      <view class='slid'>
+        <slider bindchange="sliderChange"  block-size="12px" step="2" value="{{offset}}" max="{{max}}" selected-color="#4c9dee" />
+        <view>
+          <text class='times'>{{starttime}}</text> <!-- 进度时长 -->
+        
+          <text class='times'>{{duration}}</text>   <!-- 总时长 -->
+        </view>
+      </view>
+  </view>
+  <!-- 相似歌曲 -->
+     <view class="similar"  wx:for="{{simMusic}}" wx:key="{{item.id}}" >
+      <cover-image class="similarImg" src="{{item.album.blurPicUrl}}"></cover-image>
+      <view class="similarText">
+        <text>{{item.name}}</text>
+        <text></text>
+      </view>
+    </view>
+</view>

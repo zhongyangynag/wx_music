@@ -1,0 +1,94 @@
+/* pages/musicList/musicList.wxss */
+.left{
+padding-left: 5px
+}
+.musicDescription{
+  text-indent: 30px;
+  font-size: 15px;
+   margin: 10px 0;
+   color: rgb(114, 109, 109)
+  }
+.musicListNameTitle{
+  font-size: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+}
+.palyCount{
+  font-size: 15px;
+}
+/* table ************ */
+.tablebox{
+  background: #f5f5f5
+}
+.table {
+  border: 0px solid darkgray;
+}
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 3rem;
+  align-items: center;
+  color: #606266;
+  font-size: 15px;
+  overflow: hidden;
+}
+.text{
+    display: block;
+    font-size:15px;
+    color:#000000;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+
+}
+.td {
+    width:33%;
+    justify-content: center;
+    text-align: center;
+}
+.tdname{
+   text-align: left;
+}
+.bg-w{
+  background: snow;
+}
+.bg-g{
+  background: #f5f7fa;
+}
+.th {
+  width: 33%;
+  justify-content: center;
+  background: snow;
+  color: #606266;
+  display: flex;
+  height: 3rem;
+  align-items: center;
+}
+/* table ************ */
+.imagebox{
+  height: 10rem;
+  overflow: hidden
+}
+.image{
+  width: 100%;
+  height: 100%
+}
+.musicListTab{
+  position: relative;
+  top: -10px;
+  margin: 0 10px;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  padding: 10px
+
+}
+.creator{
+  width: 1.2rem;
+  height: 1.2rem;
+  display: inline-block;
+  border-radius: 0.6rem;
+  vertical-align: middle;
+  margin-right: 5px
+}

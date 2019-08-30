@@ -1,92 +1,22 @@
 <!--index.wxml-->
-<view>
-    hello index
-</view>
-<navigator url="/pages/list/list" open-type="reLaunch">去列表页</navigator>
-<view class="{{nowClass}}">{{ message }}</view>
-<button bindtap="handleChange" size="mini">改变message值</button>
-<button bindtap="handleToList">跳转到列表页</button>
-<view wx:for="{{ list }}" wx:key="{{index}}">{{index}} , {{ item }}</view>
-
-<view wx:if="{{ isShow }}">显示的内容</view>
-<view wx:else>另一个显示的内容</view>
-<template name="temp1">
-    <view>temp1 --  111</view>
-    <view>temp2 --  222</view>
-</template>
-<template is="temp1"></template>
-<import src="index-header.wxml" />
-<template is="indexHeader" data="{{ message : 'indexText' }}"></template>
-<include src="index-footer.wxml" />
-
-
-
-<view id="parent" capture-bind:tap="handleToEvent">
-    事件  ---  父容器
-    <view id="child" capture-bind:tap="handleToEvent">{{ childInfo }}</view>
-</view>
-
-<view class="rpxBox">样式111</view>
-<view class="pxBox">样式222</view>
-<view style="background:yellow;">样式333</view>
-
-<view id="nowClassParent">
-  <view class="nowClassItem">样式4444</view>
+<view class="maxbox">
+    <i-panel title="圆角输入框">
+        
+        <i-input value="{{value}}" type="text" name='search' bind:change='input' mode="wrapped" placeholder="搜索" />
+        <i-button bind:click="search" type="success" shape="circle" size="small">搜索</i-button>
+    </i-panel>
+     <!-- <i-panel title="圆角输入框">
+        <i-input value="{{username}}" type="text"  bind:change='inputname' mode="wrapped" placeholder="name" />
+        <i-input value="{{password}}" type="text"  bind:change='inputpassword' mode="wrapped" placeholder="password" />
+        <i-button bind:click="login" type="success" shape="circle" size="small">登陆</i-button>
+    </i-panel> -->
+    <i-row>
+        <i-col wx:for="{{list}}" wx:key="list" span="8" bindtap="handleClick" data-item="{{item.id}}" i-class="col-class  col">
+           <cover-image mode='aspectFill' class="img"  src="{{item.coverImgUrl}}" />
+          <text class="name text">{{item.name}}</text>    
+        </i-col>
+    </i-row>
 </view>
 
 
-<wxs module="foo">
-
-  //写wxs的代码
-
-  function showNumber(){
-    return 123456;
-  }
-
-  module.exports.showNumber = showNumber;
-
-</wxs>
-<view> {{ foo.showNumber() }} </view>
-<view>{{ msgInfo }}</view>
-<my-header msg="{{ msgInfo }}" bindcustomEvent="getHeaderInfo"></my-header>
-<qq-video vid="e0354z3cqjp" playerid="txv1"></qq-video>
-
-
-
-
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
-<view>111</view>
 

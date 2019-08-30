@@ -1,5 +1,0 @@
-<!--pages/list/list.wxml-->
-<view>
-	hello list
-</view>
-<view class="pxBox">样式222</view>

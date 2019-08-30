@@ -1,8 +1,12 @@
 {
 
-    "navigationBarTitleText": "首页",
-  "usingComponents": {
-    "my-header": "/component/header/header",
-    "qq-video": "plugin://qqVideo/video"
-  }
+    "navigationBarTitleText": "🐑🐑🐑",
+    "usingComponents": {
+      "my-header": "/component/header/header",
+      "qq-video": "plugin://qqVideo/video",
+      "i-button": "/dist/button/index",
+      "i-row": "/dist/row/index",
+      "i-col": "/dist/col/index",
+      "i-input": "/dist/input/index"
+    }
 }

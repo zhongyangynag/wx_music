@@ -1,0 +1,45 @@
+<!--pages/searchDetail/searchDetail.wxml-->
+<wxs src='filter.wxs' module='filter'/>
+<i-tabs current="{{ current }}" bindchange="handleChange">
+    <i-tab key="1" title="音乐"></i-tab>
+    <i-tab key="100" title="歌手"></i-tab>
+    <i-tab key="1014" title="视频"></i-tab>
+</i-tabs>
+<!-- song -->
+  <view  wx:if="{{song}}"  class="table">
+    <view class="tr bg-w">
+      <view class="th">歌曲</view>
+      <view class="th">歌手</view>
+      <view class="th ">时长</view>
+    </view>
+    <block wx:for="{{list.songs}}" wx:key="{{id}}">
+      <view  class="tr bg-g" data-item="{{item.id}}" data-duration="{{filter.formatDate(item.duration)}}" bindtap="handleClick" wx:if="{{index % 2 == 0}}">
+        <view class="td tdname"><text class="text">{{item.name}}</text></view>
+        <view class="td"><text class="text">{{item.artists[0].name}}</text></view>
+        <view class="td">{{filter.formatDate(item.duration)}}</view>
+      </view>
+      <view class="tr" data-item="{{item.id}}" data-duration="{{filter.formatDate(item.duration)}}" bindtap="handleClick" wx:else>
+        <view class="td tdname"><text class="text">{{item.name}}</text></view>
+        <view class="td"><text class="text">{{item.artists[0].name}}</text></view>
+        <view class="td">{{filter.formatDate(item.duration)}}</view>
+      </view>
+    </block>
+  </view>
+  <!-- singer -->
+  <view wx:if="{{singer}}">
+    <i-row>
+          <i-col wx:for="{{list.artists}}" wx:key="list.artists.id" span="8" bindtap="handleClickSinger" data-item="{{item.id}}" i-class="col-class  col">
+            <cover-image mode='aspectFill' class="img"  src="{{item.img1v1Url}}" />
+            <text class="name text">{{item.name}}</text>    
+          </i-col>
+      </i-row>
+  </view>
+  <!-- video -->
+    <view wx:if="{{video}}">
+    <i-row>
+          <i-col wx:for="{{list.videos}}" wx:key="list.artists.id" span="8" bindtap="handleClickVideo" data-item="{{item.id}}" i-class="col-class  col">
+            <cover-image mode='aspectFill' class="img"  src="{{item.coverUrl}}" /> 
+            <text class="name text">{{item.title}}</text>    
+          </i-col>
+      </i-row>
+  </view>
