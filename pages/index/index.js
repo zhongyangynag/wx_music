@@ -6,25 +6,59 @@ Page({
   data: {
     nowClass: 'box',
     isShow: false,
-    value: '芒种',
+    value: '',
     username:'17782149108',
-    password:'hc123456'
-  },
+    password:'hc123456',
+    list:[],
+    newlist:[]
+  },     
   onLoad: function () {
     var that = this
-    // /recommend/songs
-        wx.request({
-          url: 'http://148.70.214.132:3000/top/playlist?limit=21&order=hot',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            success: function (res) {
-                console.log(res)
-              that.setData({
-                list: res.data.playlists
-              })
-            }
-        })
+    // 热门歌曲
+    wx.request({
+      url: getApp().globalData.api+'/top/playlist?limit=12&order=hot',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        success: function (res) {
+            // console.log(res)
+          that.setData({
+            list: res.data.playlists
+          })
+        }
+    })
+    // 新歌速递
+    wx.request({
+      url: getApp().globalData.api+'/personalized/newsong',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        // console.log(res)
+        that.setData({
+          newlist: res.data.result.splice(0,4)
+        })
+      }
+    }),
+      // 榜单
+      wx.request({
+      url: getApp().globalData.api+'/toplist',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        success: function (res) {
+          // console.log(res)
+          that.setData({
+
+          })
+        }
+      })
+  },
+  playthis(e) {
+    let id = e.currentTarget.dataset.item
+    wx.navigateTo({
+      url: '/pages/play/play?id=' + id 
+    });
   },
   onReachBottom: function () {
     console.log('已经到底了，可以添加新的数据了');
@@ -36,6 +70,7 @@ Page({
     this.setData({
       value: e.detail.detail.value
     })
+    console.log(value)
   },
   inputname: function (e) {
     console.log(e)
@@ -48,21 +83,6 @@ Page({
       password: e.detail.detail.value
     })
   },
-  // login(e){
-  //   let username = this.data.username
-  //   let password = this.data.password
-  //   console.log(username,password)
-  //   // http://localhost:3000/
-  //   wx.request({
-  //     url: 'http://localhost:3000/login/cellphone?phone=' + username + '&password=' + password,
-  //           headers: {
-  //               'Content-Type': 'application/json'
-  //           },
-  //           success: function (res) {
-  //               console.log(res)
-  //           }
-  //       })
-  // },
   search(e) {
     let value = this.data.value
     if(value){

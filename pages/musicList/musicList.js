@@ -16,7 +16,7 @@ Page({
       let id=options.id
     var that = this
     wx.request({
-      url: 'http://148.70.214.132:3000/playlist/detail?id='+id,
+      url: getApp().globalData.api+'/playlist/detail?id='+id,
       headers: {
         'Content-Type': 'application/json'
       },

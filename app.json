@@ -15,15 +15,11 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black",
     "navigationStyle": "default",
-    "backgroundColor": "#0ff",
-    "enablePullDownRefresh": true,
+    "backgroundColor": "#fff",
     "onReachBottomDistance": 0
   },
   "plugins": {
-    "qqVideo": {
-      "version": "1.2.4",
-      "provider": "wxa75efa648b60994b"
-    }
+  
   },
   "sitemapLocation": "sitemap.json"
 }

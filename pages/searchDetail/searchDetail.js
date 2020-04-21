@@ -23,7 +23,7 @@ Page({
     })
     var that = this
     wx.request({
-      url: 'http://148.70.214.132:3000/search?keywords='+value,
+      url: getApp().globalData.api+'/search?keywords='+value,
       headers: {
         'Content-Type': 'application/json'
       },
@@ -51,7 +51,7 @@ Page({
     });
     var that=this
     wx.request({
-      url: 'http://148.70.214.132:3000/search?keywords=' + this.data.value + '&type=' + detail.key +'&limit=21&offset=0',
+      url: getApp().globalData.api+'/search?keywords=' + this.data.value + '&type=' + detail.key +'&limit=21&offset=0',
       headers: {
         'Content-Type': 'application/json'
       },

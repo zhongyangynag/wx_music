@@ -2,7 +2,7 @@
 
 <wxs src='filter.wxs' module='filter'/>
 <view class="imagebox">
- <image mode="center" wx:if="{{condition}}" class="image" src="{{ImgUrl}}" />
+ <image  wx:if="{{condition}}" class="image" src="{{ImgUrl}}" />
 </view>
 <!-- img下 -->
 <view class="tablebox">
@@ -21,7 +21,7 @@
       <view class="th">歌手</view>
       <view class="th ">时长</view>
     </view>
-    <block wx:for="{{list.playlist.tracks}}" wx:key="{{id}}">
+    <block wx:for="{{list.playlist.tracks}}" wx:key="id">
       <view  class="tr bg-g" data-item="{{item.id}}" data-duration="{{filter.formatDate(item.dt)}}" bindtap="handleClick" wx:if="{{index % 2 == 0}}">
         <view class="td tdname"><text class="text">{{item.name}}</text></view>
         <view class="td"><text class="text">{{item.ar[0].name}}</text></view>

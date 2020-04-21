@@ -1,26 +1,60 @@
-/**index.wxss**/
-.box{ border:1px black solid; }
-
-.rpxBox { width: 375rpx; height : 100px; background:red; }
-.pxBox{ width:187.5px; height:100px; background:blue; }
-
-.maxbox{
-  padding: 0 5px
-}
-
-.nowClassItem{ background : green; }
-.col{font-size: 14px;overflow: hidden;text-align: center;padding: 0 5px}
-.name{width: 80%;display: inline-block;line-height: 24px;}
-.text{
-    display: block;
-    font-size:15px;
-    color:#000000;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow:ellipsis;
-
-}
-.img{
-  border-radius: 6px;
+.maxbox{ 
+  padding: 0 5px 
+} 
+.col{font-size: 14px;overflow: hidden;text-align: center;padding: 0 5px} 
+.name{width: 80%;display: inline-block;line-height: 24px;} 
+.text{ 
+    display: block; 
+    font-size:15px; 
+    color:#000000; 
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow:ellipsis; 
+ 
+} 
+.img{ 
+  border-radius: 6px; 
   height: 220rpx;
+  width: 100% 
+}
+.img1{  
+  height: 150rpx; 
+}
+.hotlist{
+  padding: 0 5px ;
+  font-size: 20px;
+  font-weight: bold
+}
+/* 新歌 */
+.similarMusic{
+  font-size: 30rpx;
+  width: 92%;
+  margin: 0 auto;
+  font-weight: bold;
+  margin-bottom: 10rpx
+
+}
+.similarImg{
+  width: 150rpx;
+  border-radius: 10px;
+  display: inline-block
+}
+.similarText{
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 30rpx;
+  width: 70%
+ }
+.over{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+}
+.similar{
+  width: 92%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5rpx
+
 }

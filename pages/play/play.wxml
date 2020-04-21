@@ -1,4 +1,5 @@
 <!--pages/play/play.wxml-->
+<wxs src='filter.wxs' module='filter'/>
 <view class="maxBox">
   <view class="headerBox">
     <view>{{name}}</view>
@@ -18,17 +19,17 @@
         <slider bindchange="sliderChange"  block-size="12px" step="2" value="{{offset}}" max="{{max}}" selected-color="#4c9dee" />
         <view>
           <text class='times'>{{starttime}}</text> <!-- 进度时长 -->
-        
-          <text class='times'>{{duration}}</text>   <!-- 总时长 -->
+          <text class='times'>{{filter.formatDate(duration)}}</text>   <!-- 总时长 -->
         </view>
       </view>
   </view>
   <!-- 相似歌曲 -->
-     <view class="similar"  wx:for="{{simMusic}}" wx:key="{{item.id}}" >
-      <cover-image class="similarImg" src="{{item.album.blurPicUrl}}"></cover-image>
+     <view class="similarMusic">猜你也喜欢</view>
+     <view class="similar"  wx:for="{{simMusic}}" wx:key="id" bindtap="playthis" data-item="{{item.id}}">
+      <image class="similarImg" src="{{item.album.blurPicUrl}}"></image>
       <view class="similarText">
-        <text>{{item.name}}</text>
-        <text></text>
+        <view class="over">{{item.name}}</view>
+        <view class="over">{{item.artists[0].name}}</view>
       </view>
     </view>
 </view>

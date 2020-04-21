@@ -72,10 +72,36 @@ slider{
   text-align: center;
 }
 /* 相似音乐 */
+.similarMusic{
+  font-size: 30rpx;
+  width: 92%;
+  margin: 0 auto;
+  font-weight: bold;
+  margin-bottom: 10rpx
+
+}
 .similarImg{
   width: 150rpx;
-  border-radius: 10px
+  height: 150rpx;
+  border-radius: 10px;
+  display: inline-block
 }
 .similarText{
-  display: inline-block
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 30rpx;
+  width: 70%
+ }
+.over{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+}
+.similar{
+  width: 92%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5rpx
+
 }

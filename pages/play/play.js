@@ -17,11 +17,42 @@ Page({
     similar: false
   },
 
+  playthis(e){
+    let id = e.currentTarget.dataset.item
+    console.log(id)
+    var that = this
+    wx.request({
+      url: getApp().globalData.api+'/song/detail?ids=' + id,
+      success: function (res) {
+        console.log(res)
+        bgMusic.title = res.data.songs[0].name
+        that.setData({
+          imgSrc: res.data.songs[0].al.picUrl,
+          name: res.data.songs[0].name,
+          arname: res.data.songs[0].ar[0].name,
+          duration: res.data.songs[0].dt,
+          condition: true
+        })
+      }
+    })
+    wx.request({
+      url: getApp().globalData.api+'/song/url?id=' + id,
+      success: function (res) {
+        console.log(res)
+        if (res.data.data[0].url) {
+          that.setData({
+            src: res.data.data[0].url
+          })
+          that.listenerButtonPlay()
+        }
 
+      }
+    })
+  },
   listenerButtonPlay: function () {
     var that = this
     //bug ios 播放时必须加title 不然会报错导致音乐不播放
-    bgMusic.title = this.data.name
+    // bgMusic.title = this.data.name
     bgMusic.epname = '此时此刻222'
     bgMusic.src = that.data.src;
     bgMusic.onTimeUpdate(() => {
@@ -45,6 +76,10 @@ Page({
         changePlay: true
       })
     })
+    bgMusic.play();
+    that.setData({
+      isOpen: true,
+    })
     //播放结束
     bgMusic.onEnded(() => {
       that.setData({
@@ -53,10 +88,6 @@ Page({
         offset: 0
       })
       console.log("音乐播放结束");
-    })
-    bgMusic.play();
-    that.setData({
-      isOpen: true,
     })
   },
   //暂停播放
@@ -95,24 +126,23 @@ Page({
     console.log(options)
     let id = options.id
     let duration = options.duration
-    this.setData({
-      duration: duration,
-    })
     var that = this
     wx.request({
-      url: 'http://148.70.214.132:3000/song/detail?ids='+id,
+      url: getApp().globalData.api+'/song/detail?ids='+id,
       success: function (res) {
         console.log(res)
+        bgMusic.title = res.data.songs[0].name
         that.setData({
           imgSrc: res.data.songs[0].al.picUrl,
           name:res.data.songs[0].name,
           arname: res.data.songs[0].ar[0].name,
+          duration: res.data.songs[0].dt,
           condition: true
         })
       }
     })
     wx.request({
-      url: 'http://148.70.214.132:3000/song/url?id='+id,
+      url: getApp().globalData.api+'/song/url?id='+id,
       success: function (res) {
         console.log(res)
         if (res.data.data[0].url){
@@ -126,11 +156,13 @@ Page({
     })
     // 相似音乐
     wx.request({
-      url: 'http://148.70.214.132:3000/simi/song?id='+id,
+      url: getApp().globalData.api+'/simi/song?id='+id,
       success: function (res) {
-        that.setData({
+        if (res.data.songs){
+           that.setData({
           simMusic: res.data.songs
         })
+        }
         console.log(res)
         }
     })

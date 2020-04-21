@@ -3,7 +3,6 @@
     "navigationBarTitleText": "🐑🐑🐑",
     "usingComponents": {
       "my-header": "/component/header/header",
-      "qq-video": "plugin://qqVideo/video",
       "i-button": "/dist/button/index",
       "i-row": "/dist/row/index",
       "i-col": "/dist/col/index",

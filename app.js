@@ -11,5 +11,8 @@ App({
   },
   onHide() {
     console.log('app:', '离开前台');
-  }
+  },
+  globalData:{
+    api:'https://music.zhongyangyang.com'
+    }
 })

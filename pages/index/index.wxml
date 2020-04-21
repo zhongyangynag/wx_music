@@ -1,21 +1,25 @@
 <!--index.wxml-->
 <view class="maxbox">
     <i-panel title="圆角输入框">
-        
         <i-input value="{{value}}" type="text" name='search' bind:change='input' mode="wrapped" placeholder="搜索" />
         <i-button bind:click="search" type="success" shape="circle" size="small">搜索</i-button>
     </i-panel>
-     <!-- <i-panel title="圆角输入框">
-        <i-input value="{{username}}" type="text"  bind:change='inputname' mode="wrapped" placeholder="name" />
-        <i-input value="{{password}}" type="text"  bind:change='inputpassword' mode="wrapped" placeholder="password" />
-        <i-button bind:click="login" type="success" shape="circle" size="small">登陆</i-button>
-    </i-panel> -->
+     <view class="hotlist">新歌速递</view> <!-- 新歌速递 -->
+     <view class="similar"  wx:for="{{newlist}}" wx:key="id" bindtap="playthis" data-item="{{item.id}}">
+      <image class="similarImg img1"  src="{{item.song.album.blurPicUrl}}"></image>
+      <view class="similarText">
+        <view class="over">{{item.name}}</view>
+        <view class="over">{{item.artists[0].name}}</view>
+      </view>
+    </view> <!-- 新歌速递 完-->
+    <view class="hotlist">热门歌单</view>
     <i-row>
         <i-col wx:for="{{list}}" wx:key="list" span="8" bindtap="handleClick" data-item="{{item.id}}" i-class="col-class  col">
-           <cover-image mode='aspectFill' class="img"  src="{{item.coverImgUrl}}" />
+           <image  class="img"  src="{{item.coverImgUrl}}" />
           <text class="name text">{{item.name}}</text>    
         </i-col>
     </i-row>
+    
 </view>
 
 
