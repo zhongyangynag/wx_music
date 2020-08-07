@@ -62,7 +62,7 @@ Page({
         const images = this.data.images.concat(res.tempFilePaths)
         // 限制最多只能留下3张照片
         this.data.images = images.length <= 3 ? images : images.slice(0, 3) 
-       console.log(this.data.images)
+       console.log(this.data.images,res)
       }
     })
   },
