@@ -6,11 +6,12 @@ Page({
   data: {
     nowClass: 'box',
     isShow: false,
-    value: '',
+    value: 'jj',
     username:'17782149108',
     password:'hc123456',
     list:[],
-    newlist:[]
+    newlist:[],
+    images:[],
   },     
   onLoad: function () {
     var that = this
@@ -36,7 +37,7 @@ Page({
       success: function (res) {
         // console.log(res)
         that.setData({
-          newlist: res.data.result.splice(0,4)
+          newlist: res.data.result.splice(0,6)
         })
       }
     }),
@@ -49,10 +50,21 @@ Page({
         success: function (res) {
           // console.log(res)
           that.setData({
-
           })
         }
       })
+  },
+  chooseImage(e) {
+    wx.chooseImage({
+      sizeType: ['original', 'compressed'],  //可选择原图或压缩后的图片
+      sourceType: ['album', 'camera'], //可选择性开放访问相册、相机
+      success: res => {
+        const images = this.data.images.concat(res.tempFilePaths)
+        // 限制最多只能留下3张照片
+        this.data.images = images.length <= 3 ? images : images.slice(0, 3) 
+       console.log(this.data.images)
+      }
+    })
   },
   playthis(e) {
     let id = e.currentTarget.dataset.item
@@ -67,10 +79,11 @@ Page({
 
   },
   input: function (e) {
+    // console.log(e)
     this.setData({
       value: e.detail.detail.value
     })
-    console.log(value)
+
   },
   inputname: function (e) {
     console.log(e)

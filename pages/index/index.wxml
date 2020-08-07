@@ -1,15 +1,19 @@
 <!--index.wxml-->
 <view class="maxbox">
     <i-panel title="圆角输入框">
-        <i-input value="{{value}}" type="text" name='search' bind:change='input' mode="wrapped" placeholder="搜索" />
+        <i-input value="{{value}}" type="text" name='search' bind:change='input' mode="wrapped" maxlength='10' placeholder="搜索" />
         <i-button bind:click="search" type="success" shape="circle" size="small">搜索</i-button>
+        <button
+    type="default" size="mini" bindtap="chooseImage" 
+   
+>添加图片</button>
     </i-panel>
      <view class="hotlist">新歌速递</view> <!-- 新歌速递 -->
      <view class="similar"  wx:for="{{newlist}}" wx:key="id" bindtap="playthis" data-item="{{item.id}}">
       <image class="similarImg img1"  src="{{item.song.album.blurPicUrl}}"></image>
       <view class="similarText">
         <view class="over">{{item.name}}</view>
-        <view class="over">{{item.artists[0].name}}</view>
+        <view class="over">{{item.song.artists[0].name}}</view>
       </view>
     </view> <!-- 新歌速递 完-->
     <view class="hotlist">热门歌单</view>

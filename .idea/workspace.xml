@@ -72,7 +72,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587468053836</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="接口调整">
+      <created>1587468764004</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1587468764004</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -98,6 +105,27 @@
     </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="luopaopao" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
@@ -105,18 +133,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="接口调整" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="354" y="102" key="CommitChangelistDialog2" timestamp="1587468053581">
+    <state x="354" y="102" key="CommitChangelistDialog2" timestamp="1587468763828">
       <screen x="0" y="23" width="1792" height="1017" />
     </state>
-    <state x="354" y="102" key="CommitChangelistDialog2/-1920.63.1920.1057/0.23.1792.1017@0.23.1792.1017" timestamp="1587468053581" />
+    <state x="354" y="102" key="CommitChangelistDialog2/-1920.63.1920.1057/0.23.1792.1017@0.23.1792.1017" timestamp="1587468763828" />
     <state x="718" y="432" width="288" height="301" key="Github.ShareDialog" timestamp="1587468219424">
       <screen x="0" y="23" width="1792" height="1017" />
     </state>
     <state x="718" y="432" width="288" height="301" key="Github.ShareDialog/-1920.63.1920.1057/0.23.1792.1017@0.23.1792.1017" timestamp="1587468219424" />
-    <state x="462" y="268" key="Vcs.Push.Dialog.v2" timestamp="1587468200878">
+    <state x="462" y="268" key="Vcs.Push.Dialog.v2" timestamp="1587468766398">
       <screen x="0" y="23" width="1792" height="1017" />
     </state>
-    <state x="462" y="268" key="Vcs.Push.Dialog.v2/-1920.63.1920.1057/0.23.1792.1017@0.23.1792.1017" timestamp="1587468200878" />
+    <state x="462" y="268" key="Vcs.Push.Dialog.v2/-1920.63.1920.1057/0.23.1792.1017@0.23.1792.1017" timestamp="1587468766398" />
     <state x="561" y="239" width="621" height="580" key="find.popup" timestamp="1587464673512">
       <screen x="0" y="23" width="1792" height="1017" />
     </state>
